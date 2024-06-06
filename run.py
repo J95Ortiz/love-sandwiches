@@ -117,17 +117,15 @@ def get_last_5_entries_sales():
     as a list of lists.
     """
     sales = SHEET.worksheet("sales")
-    #column = sales.col_values(3)
-    #print(column) 
-
+    
     columns = []
     for ind in range(1, 7):
         column = sales.col_values(ind)
-        columns.insert(0, column[0])
+        #columns.insert(0, column[0])
         columns.append(column[-5:])
-        print(column) #THIS ONE!!
-        print(column[0], column[-5:]) #OR THIS ONE!!
-    print(columns) #OR THIS ONE!!
+        #print(column) #THIS ONE prints all values as one list!!
+        print(column[0], column[-5:]) #OR THIS ONE splits the sammich name and the values (my_fave)!!
+    return columns #OR THIS ONE just prints the values!!
 
 
 def main():
@@ -142,7 +140,8 @@ def main():
 
 print("Welcome to Love Sandwiches Data Automation")
 # main()
-get_last_5_entries_sales()
+
+sales_columns = get_last_5_entries_sales()
 
 
 
